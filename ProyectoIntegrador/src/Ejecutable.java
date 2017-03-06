@@ -1,31 +1,30 @@
 import processing.core.PApplet;
 
-public class Ejecutable {
-	
-    public static PApplet app;
-    
+public class Ejecutable extends PApplet {
+
+	public Logica log;
+
 	public static void main(String[] args) {
-	
-       PApplet.main("Ejecutable");
+
+		PApplet.main("Ejecutable");
 	}
-	
-	
-	public void setting(){
-		
+
+	public void setup() {
+	log = new Logica(this);	
+
 	}
-	
-	public void setup(){
-		
+
+	public void settings() {
+	size(1200,700);	
+
 	}
-	
-	public void draw(){
-		
+
+	public void draw() {
+	log.pantalla();	
 	}
-	
-	public void keyPressed(){	
-		
+
+	public void keyPressed() {
+    log.teclado();
 	}
-	
-	
 
 }
