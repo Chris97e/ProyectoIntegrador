@@ -26,5 +26,9 @@ public class Ejecutable extends PApplet {
 	public void keyPressed() {
     log.teclado();
 	}
+	
+	public void mousePressed(){
+	log.presionar();
+	}
 
 }

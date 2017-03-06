@@ -28,4 +28,8 @@ public class Logica {
 
 	}
 
+	public void presionar() {
+		
+	}
+
 }
