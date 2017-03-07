@@ -1,9 +1,18 @@
+import processing.core.PApplet;
 
 public class Personas {
 	
-	public Personas(String nombre, String apellido, long cédula, int edad, int peso, int r, int g, int b) {
+	
+
+	private String nombre, apellido;
+	private long cédula;
+	private int  edad, peso, r, g, b;
+	private PApplet app;
+	
+	public Personas(String nombre, String apellido, long cédula, int edad, int peso, int r, int g, int b, PApplet app) {
 		super();
 		this.nombre = nombre;
+		this.app=app;
 		this.apellido = apellido;
 		this.cédula = cédula;
 		this.edad = edad;
@@ -13,19 +22,24 @@ public class Personas {
 		this.b = b;
 	}
 
-
-
-	private String nombre, apellido;
-	private long cédula;
-	private int  edad, peso, r, g, b;
-
 	
 	
-
-
-
-
-	@Override
+	public void pintar(int x, int y){
+	
+		app.textSize(15);
+		app.fill(r,g,b);
+		app.text(nombre,x,y);
+		app.text(apellido,x,y);
+		app.text(cédula,x,y);
+		app.text(edad,x,y);
+		app.text(peso,x,y);
+		app.noFill();
+		
+		
+	}
+	
+	
+	
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;

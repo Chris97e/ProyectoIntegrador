@@ -22,7 +22,7 @@ public class Logica {
 			String[] color = colores[i].split("/");
 			lista.add(new Personas(nombre[0], nombre[1], Long.parseLong(dato[0]), Integer.parseInt(dato[1]),
 					Integer.parseInt(dato[2]), Integer.parseInt(color[0]), Integer.parseInt(color[1]),
-					Integer.parseInt(color[2])));
+					Integer.parseInt(color[2]),app));
 		}
 		organizarEdad();
 		avance();
@@ -39,6 +39,11 @@ public class Logica {
 
 		case 1:
 			app.background(0);
+			for (int i = 0; i < lista.size(); i++) {
+				Personas pe = lista.get(i);
+				pe.pintar(50,50*i);
+			}
+			
 			break;
 		}
 	}
