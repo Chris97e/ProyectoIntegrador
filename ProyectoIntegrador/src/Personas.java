@@ -1,7 +1,7 @@
 
 public class Personas {
 	
-	public Personas(String nombre, String apellido, int cédula, int edad, int peso, int r, int g, int b) {
+	public Personas(String nombre, String apellido, long cédula, int edad, int peso, int r, int g, int b) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -16,7 +16,8 @@ public class Personas {
 
 
 	private String nombre, apellido;
-	private int cédula, edad, peso, r, g, b;
+	private long cédula;
+	private int  edad, peso, r, g, b;
 
 	
 	

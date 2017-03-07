@@ -20,7 +20,7 @@ public class Logica {
 			String[] nombre = nombres[i].split(":");
 			String[] dato = datos[i].split("/");
 			String[] color = colores[i].split("/");
-			lista.add(new Personas(nombre[0],nombre[1],Integer.parseInt(dato[0]),Integer.parseInt(dato[1]),Integer.parseInt(dato[2]),Integer.parseInt(color[0]),Integer.parseInt(color[1]),Integer.parseInt(color[2])));
+			lista.add(new Personas(nombre[0],nombre[1],Long.parseLong(dato[0]),Integer.parseInt(dato[1]),Integer.parseInt(dato[2]),Integer.parseInt(color[0]),Integer.parseInt(color[1]),Integer.parseInt(color[2])));
 		}
 		
 		app.println(lista.size());
