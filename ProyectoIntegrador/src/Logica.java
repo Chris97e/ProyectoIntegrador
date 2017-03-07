@@ -23,7 +23,30 @@ public class Logica {
 			lista.add(new Personas(nombre[0],nombre[1],Long.parseLong(dato[0]),Integer.parseInt(dato[1]),Integer.parseInt(dato[2]),Integer.parseInt(color[0]),Integer.parseInt(color[1]),Integer.parseInt(color[2])));
 		}
 		
-		app.println(lista.size());
+		
+		
+		
+		
+		for (int i = 0; i < lista.size(); i++) {
+			for (int j = 1; j < lista.size(); j++) {
+				Personas uno = (Personas) lista.get(j-1);
+				Personas dos = (Personas) lista.get(j);
+				if(uno.getEdad()>dos.getEdad()){
+					lista.set(j-1, dos);
+					lista.set(j, uno);
+					
+				}
+			}
+			
+		}
+		
+		for (int i = 0; i < lista.size(); i++) {
+			app.println(((Personas)lista.get(i)).getEdad());
+			
+		}
+		
+		
+		
 	}
 
 	public void pantalla() {

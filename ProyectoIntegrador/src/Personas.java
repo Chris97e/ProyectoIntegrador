@@ -57,6 +57,102 @@ public class Personas {
 			return false;
 		return true;
 	}
+
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+
+	public String getApellido() {
+		return apellido;
+	}
+
+
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+
+
+	public long getCédula() {
+		return cédula;
+	}
+
+
+
+	public void setCédula(long cédula) {
+		this.cédula = cédula;
+	}
+
+
+
+	public int getEdad() {
+		return edad;
+	}
+
+
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+
+
+	public int getPeso() {
+		return peso;
+	}
+
+
+
+	public void setPeso(int peso) {
+		this.peso = peso;
+	}
+
+
+
+	public int getR() {
+		return r;
+	}
+
+
+
+	public void setR(int r) {
+		this.r = r;
+	}
+
+
+
+	public int getG() {
+		return g;
+	}
+
+
+
+	public void setG(int g) {
+		this.g = g;
+	}
+
+
+
+	public int getB() {
+		return b;
+	}
+
+
+
+	public void setB(int b) {
+		this.b = b;
+	}
 	
 	
 	
