@@ -1,6 +1,9 @@
+import java.util.Comparator;
+import java.util.LinkedList;
+
 import processing.core.PApplet;
 
-public class Personas {
+public class Personas implements Comparable<Personas>{
 	
 	
 
@@ -8,6 +11,7 @@ public class Personas {
 	private long cédula;
 	private int  edad, peso, r, g, b;
 	private PApplet app;
+	LinkedList<Personas> personas;
 	
 	public Personas(String nombre, String apellido, long cédula, int edad, int peso, int r, int g, int b, PApplet app) {
 		super();
@@ -28,11 +32,11 @@ public class Personas {
 	
 		app.textSize(15);
 		app.fill(r,g,b);
-		app.text(nombre,x,y);
-		app.text(apellido,x,y);
-		app.text(cédula,x,y);
-		app.text(edad,x,y);
-		app.text(peso,x,y);
+		app.text(nombre,x ,y);
+		app.text(apellido,x+100,y);
+		app.text(cédula,x +200,y);
+		app.text(edad,x+370,y);
+		app.text(peso,x+400,y);
 		app.noFill();
 		
 		
@@ -167,6 +171,16 @@ public class Personas {
 	public void setB(int b) {
 		this.b = b;
 	}
+
+
+
+	public int compareTo(Personas o) {
+	
+		return this.nombre.compareTo(o.getNombre());
+	}
+
+
+
 	
 	
 	

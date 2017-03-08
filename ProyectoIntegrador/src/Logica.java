@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 
 import processing.core.PApplet;
 
@@ -7,6 +9,8 @@ public class Logica {
 	private int pantalla = 1;
 	private PApplet app;
 	ArrayList<Personas> lista = new ArrayList<Personas>();
+	HashSet<Personas> listas;
+
 
 	public Logica(PApplet app) {
 		String[] nombres, datos, colores;
@@ -22,10 +26,8 @@ public class Logica {
 			String[] color = colores[i].split("/");
 			lista.add(new Personas(nombre[0], nombre[1], Long.parseLong(dato[0]), Integer.parseInt(dato[1]),
 					Integer.parseInt(dato[2]), Integer.parseInt(color[0]), Integer.parseInt(color[1]),
-					Integer.parseInt(color[2]),app));
+					Integer.parseInt(color[2]), app));
 		}
-		organizarEdad();
-		avance();
 
 	}
 
@@ -41,18 +43,42 @@ public class Logica {
 			app.background(0);
 			for (int i = 0; i < lista.size(); i++) {
 				Personas pe = lista.get(i);
-				pe.pintar(50,50*i);
+				pe.pintar(50, 20 * i + 20);
 			}
-			
+
 			break;
 		}
 	}
 
-	public void teclado() {
+	public void presionar() {
 
 	}
 
-	public void presionar() {
+	public void teclado() {
+		
+		//Se organiza en orden natural a través del nombre
+		if(app.keyCode =='1'){
+			Collections.sort(lista);
+			
+		}
+		
+		
+		//Se organizará según su peso
+		
+		
+		if(app.keyCode =='2'){
+			OPeso peso = new OPeso();
+			Collections.sort(lista, peso);			
+					
+			
+		}
+		
+		//Se organizará según su edad
+		if(app.keyCode =='3'){
+			OEdad edad= new OEdad();
+			Collections.sort(lista, edad);
+		}
+		
 
 	}
 
@@ -71,7 +97,7 @@ public class Logica {
 		}
 	}
 
-	public void avance() {
+	public void avanceEdad() {
 		for (int i = 0; i < lista.size(); i++) {
 			PApplet.println(((Personas) lista.get(i)).getEdad());
 
