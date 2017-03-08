@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 
 import processing.core.PApplet;
 
@@ -9,8 +10,8 @@ public class Logica {
 	private int pantalla = 1;
 	private PApplet app;
 	ArrayList<Personas> lista = new ArrayList<Personas>();
-	HashSet<Personas> listas;
-
+	HashSet<Personas> listas = new HashSet<Personas>();
+	ArrayList<Personas> backup = new ArrayList<Personas>();
 
 	public Logica(PApplet app) {
 		String[] nombres, datos, colores;
@@ -46,6 +47,14 @@ public class Logica {
 				pe.pintar(50, 20 * i + 20);
 			}
 
+			Iterator<Personas> old = listas.iterator();
+			int cualquiera = 0;
+			while (old.hasNext()) {
+				Personas algo = old.next();
+				algo.pintar(50, 20 * cualquiera + 20);
+				cualquiera++;
+			}
+
 			break;
 		}
 	}
@@ -55,32 +64,45 @@ public class Logica {
 	}
 
 	public void teclado() {
-		
-		//Se organiza en orden natural a través del nombre
-		if(app.keyCode =='1'){
-			Collections.sort(lista);
-			
-		}
-		
-		
-		//Se organizará según su peso
-		
-		
-		if(app.keyCode =='2'){
-			OPeso peso = new OPeso();
-			Collections.sort(lista, peso);			
-					
-			
-		}
-		
-		//Se organizará según su edad
-		if(app.keyCode =='3'){
-			OEdad edad= new OEdad();
-			Collections.sort(lista, edad);
-		}
-		
 
-	}
+		// Se organiza en orden natural a través del nombre
+		if (app.keyCode == '1') {
+			if (!backup.isEmpty()) {
+				lista.addAll(backup);
+				backup.removeAll(lista);
+				listas.removeAll(lista);
+			}
+				Collections.sort(lista);
+			}
+
+			// Se organizará según su peso
+
+			if (app.keyCode == '2') {
+				if (!backup.isEmpty()) {
+					lista.addAll(backup);
+					backup.removeAll(lista);
+					listas.removeAll(lista);
+				} 
+				OPeso peso = new OPeso();
+				Collections.sort(lista, peso);
+
+			}
+
+			// Se organizará según su edad
+			if (app.keyCode == '3') {
+				if (listas.isEmpty()) {
+					backup.addAll(lista);
+					listas.addAll(lista);
+					lista.removeAll(listas);
+				}
+
+				// OEdad edad= new OEdad();
+				// Collections.sort(lista, edad);
+
+			}
+
+		}
+	
 
 	public void organizarEdad() {
 		for (int i = 0; i < lista.size(); i++) {
