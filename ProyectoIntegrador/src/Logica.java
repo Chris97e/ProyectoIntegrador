@@ -106,9 +106,10 @@ public class Logica {
 
 		// No ordenados sin repetidos (Según la igualdad base)
 		if (app.keyCode == '4') {
-			sinOrden.addAll(backup);
+			sinOrden.removeAll(backup);
 			lista.removeAll(backup);
 			listas.removeAll(backup);
+			sinOrden.addAll(backup);
 		}
 		
 	}

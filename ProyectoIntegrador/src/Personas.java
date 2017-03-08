@@ -10,7 +10,7 @@ public class Personas implements Comparable<Personas>{
 	private String nombre, apellido;
 	private long cédula;
 	private int  edad, peso, r, g, b;
-	private int sumaC= r+g+b;
+	private int sumaC;
 	private PApplet app;
 	LinkedList<Personas> personas;
 	
@@ -25,6 +25,7 @@ public class Personas implements Comparable<Personas>{
 		this.r = r;
 		this.g = g;
 		this.b = b;
+		sumaC=r+g+b;
 	}
 
 	
@@ -51,26 +52,19 @@ public class Personas implements Comparable<Personas>{
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + sumaC;
-		return result;
+		
+		return this.sumaC;
 	}
 
 
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Personas other = (Personas) obj;
-		if (sumaC != other.sumaC)
-			return false;
-		return true;
+		if (obj instanceof Personas) {
+			Personas pe= (Personas) obj;
+			return this.sumaC==pe.getSumaC();			
+		}
+		return false;
 	}
 
 
